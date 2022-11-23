@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+{{ encore_entry_link_tags('app') }}
+<link href="{{ asset('css/inici.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block title %}Equips{% endblock %}
+{% block body %}
+<div class="contenidor">
+<h1>Projecte Symfony Equips 2n DAW</h1>
+<h2>Benvingut al web de Equips.</h2>
+<p>Pàgina d'inici</p>
+</div>
+<img src="{{ asset('img/team.jpg') }}" />
+{% endblock %}
