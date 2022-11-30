@@ -5,10 +5,15 @@
 {% endblock %}
 {% block title %}Equips{% endblock %}
 {% block body %}
-<div class="contenidor">
-<h1>Projecte Symfony Equips 2n DAW</h1>
-<h2>Benvingut al web de Equips.</h2>
-<p>Pàgina d'inici</p>
-</div>
-<img src="{{ asset('img/team.jpg') }}" />
+    <div class="contenidor">
+        <h1>Projecte Symfony Equips 2n DAW</h1>
+        <p>Pàgina d'inici</p>
+         <img src="{{ asset('img/team.jpg') }}" />
+        <br>
+        <h2>Llista d'equips</h2>
+             {% for equip in equips %}
+                    <a href="{{ path('dades_equips') }}/{{equip.codi}}">{{ equip.nom }}</a>
+                {% endfor %} 
+    </div>
+    
 {% endblock %}

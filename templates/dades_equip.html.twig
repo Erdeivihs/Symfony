@@ -1,30 +1,29 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
-{{ encore_entry_link_tags('app') }}
-<link href="{{ asset('css/dades.css') }}" rel="stylesheet" />
-{% endblock %}
-{% block body %}
-{% block title %}Equips{% endblock %}
-<div class="contenidor">
-{% if equip %}
-<h1>Dades Equip {{ equip.codi}}</h1>
-<img src="{{ asset('img/colors.png') }}" />
-
-<table><strong>Codi:</strong>{{ equip.codi }}</table>
-<table><strong>Nom: </strong>{{ equip.nom }}</table>
-<table><strong>Cicle: </strong>{{ equip.cicle }}</table>
-<table><strong>Curs: </strong>{{ equip.curs }}</table>
-<table><strong>Membres: </strong>
-{% for membre in equip.membres %}
-<table>{{ membre }}</table>
-{% endfor %}
-</table>
-<a href ="{{ path('inici') }}">Tornar al inici</a>
-</div>
-{% else %}
-<h1>Dades Equip</h1>
-<img src="{{ asset('img/sad.jpg') }}" />
-<h2>Equip no trobat</h2>
-<a href ="{{ path('inici') }}">Tornar al inici</a>
-{% endif %}
-{% endblock %}
+    {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+        <link href="{{ asset('css/dades.css') }}" rel="stylesheet" />
+    {% endblock %}
+    {% block body %}
+    {% block title %}Equips{% endblock %}
+        <div class="contenidor">
+        {% if equip %}
+            <h1>Dades Equip {{ equip.codi}}</h1>
+            <img src="{{ asset('img/'~equip.img~'') }}" />
+            <table><strong>Codi:</strong>{{ equip.codi }}</table>
+            <table><strong>Nom: </strong>{{ equip.nom }}</table>
+            <table><strong>Cicle: </strong>{{ equip.cicle }}</table>
+            <table><strong>Curs: </strong>{{ equip.curs }}</table>
+            <table><strong>Membres: </strong>
+                {% for membre in equip.membres %}
+                    <table>{{ membre }}</table>
+                {% endfor %}
+            </table>
+            <a href ="{{ path('inici') }}">Tornar al inici</a>
+            </div>
+        {% else %}
+            <h1>Dades Equip</h1>
+            <img src="{{ asset('img/sad.jpg') }}" />
+            <h2>Equip no trobat</h2>
+            <a href ="{{ path('inici') }}">Tornar al inici</a>
+        {% endif %}
+    {% endblock %}
