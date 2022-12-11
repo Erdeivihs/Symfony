@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+    {% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+        <link href="{{ asset('css/dades.css') }}" rel="stylesheet" />
+    {% endblock %}
+    {% block body %}
+    {% block title %}Equips{% endblock %}
+        <div class="contenidor">
+            {% if error %}
+            <h1>Projecte Symfony Equips 2n DAW</h1>
+                <h2>Error en la inserció de l'equips:
+                {% for equip in equips %}
+                        <h2>Equip {{ equip.nom }}</h2>
+                    {% endfor %}
+                </h2>
+                <img src="{{ asset('img/sad.jpg') }}" />
+                <p>{{ error }}</p>
+                <a href ="{{ path('inici') }}">Tornar al inici</a>
+            {% else %}
+            <h1>Projecte Symfony Equips 2n DAW</h1>
+                <h2>Equips: 
+                {% for equip in equips %}
+                        <h2>Equip {{ equip.nom }} amb id: {{ equip.id }}</h2>
+                    {% endfor %}
+                </h2>
+                <img src="{{ asset('img/equipPerDefecte.png') }}" />
+                <a href ="{{ path('inici') }}">Tornar al inici</a>
+            {% endif %}
+        </div>
+    {% endblock %}

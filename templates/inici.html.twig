@@ -11,9 +11,9 @@
          <img src="{{ asset('img/team.jpg') }}" />
         <br>
         <h2>Llista d'equips</h2>
-             {% for equip in equips %}
-                    <a href="{{ path('dades_equips') }}/{{equip.codi}}">{{ equip.nom }}</a>
-                {% endfor %} 
+            {% for equip in equips %}
+                    <a href="equip/{{equip.id}}">{{ equip.nom }}</a>
+            {% endfor %} 
     </div>
     
 {% endblock %}
